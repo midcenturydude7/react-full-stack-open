@@ -1,12 +1,35 @@
 import React from "react";
 
-const Content = (props) => {
+const Content = () => {
+
+    return (
+        <div>
+            <Part {...Part.parts} />
+        </div>        
+    );
+}
+
+const Part = () => {
+    const parts = {
+        part1: {
+            name: "Fundamentals of React",
+            exercises: 10 
+        },
+        part2: {
+            name: "Using props to pass data",
+            exercises: 7
+        },
+        part3: {
+            name: "State of a component",
+            exercises: 14
+        }
+    }
     return (
         <>
-            <p>{props.part1}:<span>{props.exercises1}</span></p>
-            <p>{props.part2}:<span>{props.exercises2}</span></p>  
-            <p>{props.part3}:<span>{props.exercises3}</span></p> 
-        </>        
+            <p>{parts.part1.name + ": " + parts.part1.exercises}</p>
+            <p>{parts.part2.name + ": " + parts.part2.exercises}</p>
+            <p>{parts.part3.name + ": " + parts.part3.exercises}</p>
+        </>
     );
 }
 
