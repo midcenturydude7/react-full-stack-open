@@ -1,5 +1,10 @@
 import React from 'react';
-import Counter from './components/Counter';
+import Display from './components/Display';
+import Button from './components/Button';
+
+// { Stateful component}
+// import Counter from './components/Counter';
+
 // { Getting started }
 // import Header from './components/Header';
 // import Content from './components/Content';
@@ -9,9 +14,32 @@ import Counter from './components/Counter';
 // import Hello from './components/Hello';
 
 const App = () => {
+  const [counter, setCounter] = React.useState(0);
+
+  const increaseByOne = () => setCounter(counter + 1)
+  const decreaseByOne = () => setCounter(counter - 1);
+  const setToZero = () => setCounter(0);
+
   return (
-    <Counter />
+    <div>
+      <Display counter={counter} />
+      <Button 
+        onClick={increaseByOne}
+        text="plus"
+      />
+      <Button 
+        onClick={setToZero}
+        text="zero"
+      />
+      <Button 
+        onClick={decreaseByOne}
+        text="minus"
+      />
+    </div>
   );
+    // { Stateful components }
+    // <Counter />
+
   // const {counter} = props
   
   // return (
