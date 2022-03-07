@@ -1,30 +1,37 @@
 import React from 'react';
-import History from './components/History';
 import Button from './components/Button';
 
 const App = () => {
-  const [left, setLeft] = React.useState(0)
-  const [right, setRight] = React.useState(0)
-  const [allClicks, setAll] = React.useState([])
+  const [good, setGood] = React.useState(0)
+  const [neutral, setNeutral] = React.useState(0)
+  const [bad, setBad] = React.useState(0)
 
-  const handleLeftClick = () => {
-    setAll(allClicks.concat('L'))
-    setLeft(left + 1)
+  const handleGoodClick = () => {
+    setGood(good + 1)
   }
 
-  const handleRightClick = () => {
-    setAll(allClicks.concat('R'))
-    setRight(right + 1)
+  const handleNeutralClick = () => {
+    setNeutral(neutral + 1)
+  }
+
+  const handleBadClick = () => {
+    setBad(bad + 1)
   }
 
   return (
     <div>
-      {left}
-      <Button handleClick={handleLeftClick} text="left" />
-      <Button handleClick={handleRightClick} text="right" />
-      {right}
-      <p>{allClicks.join(" ")}</p>
-      <History allClicks={allClicks} />
+      <h1>Give Feedback</h1>
+      <div>
+        <Button handleClick={handleGoodClick} text="good" />
+        <Button handleClick={handleNeutralClick} text="neutral" />
+        <Button handleClick={handleBadClick} text="bad" />
+      </div>
+      <h2>Statistics</h2>
+      <div>
+        <span>Good: {good}</span><br />
+        <span>Neutral: {neutral}</span><br />
+        <span>Bad: {bad}</span>
+      </div> 
     </div>
   )
 }
