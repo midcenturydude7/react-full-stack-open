@@ -1,15 +1,12 @@
 import React from "react";
 
-const Statistics = ({ good, neutral, bad }) => {
-    const [total, setTotal] = React.useState(0)
-    const sumNums = good + neutral + bad
-    setTotal(total + sumNums)
+const Statistics = ({total, average, positive}) => {
 
     return (
         <>
             <span>All: {total}</span><br />
-            <span>Average: </span><br />
-            <span>Positive: </span><br />
+            <span>Average: {average}</span><br />
+            <span>Positive: {positive}%</span><br />
         </>
     )
 }
