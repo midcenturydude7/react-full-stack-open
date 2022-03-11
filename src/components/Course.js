@@ -25,11 +25,14 @@ const Content = ({ course }) => {
     const nameLine3 = course.parts[2].name
     const exerciseLine3 = course.parts[2].exercises
 
+    const totalExercises = course.parts[0].exercises + course.parts[1].exercises + course.parts[2].exercises
+
     return (
         <>
             <p>{nameLine1}: {exerciseLine1}</p>
             <p>{nameLine2}: {exerciseLine2}</p>
             <p>{nameLine3}: {exerciseLine3}</p>
+            <p>Total of {totalExercises} exercises</p>
         </>
     )
 }
