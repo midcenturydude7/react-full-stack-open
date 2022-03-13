@@ -1,5 +1,6 @@
 import React from 'react';
 import Course from './components/Course';
+import Spread from './components/Spread';
 
 
 const App = () => {
@@ -29,7 +30,7 @@ const App = () => {
   return (
     <>
       <Course course={course} />
-      {/* <p>{course.parts.map(course => <span key={course.id}>{course.name}</span>)}</p> */}
+      <Spread course={course} />
     </>
   )
 }
