@@ -1,6 +1,6 @@
 import React from 'react';
 import Course from './components/Course';
-import Spread from './components/Spread';
+// import Spread from './components/Spread';
 
 
 const App = () => {
@@ -30,7 +30,6 @@ const App = () => {
   return (
     <>
       <Course course={course} />
-      <Spread course={course} />
     </>
   )
 }
