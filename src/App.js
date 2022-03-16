@@ -3,43 +3,30 @@ import React from 'react';
 const App = () => {
   const [persons, setPersons] = React.useState([
     {
-      id: 1,
       name: "Arto Hellas"
-    },
-    {
-      id: 2,
-      name: "Fred Flinstone"
     }
   ])
+  const [newName, setNewName] = React.useState("");
+
+  const addNewName = (event) => {
+    event.preventDefault();
+    console.log(event.target.value)
+    setNewName(event.target.value)
+  }
 
   return (
     <div>
-      <h1>Current names on the list:</h1>
-      <CurrentList persons={persons} />
-      <h1> Add a name:</h1>
-      <NewList persons={persons} />
+      <h2>Phonebook</h2>
+      <form onSubmit={addNewName}>
+        <div>
+          name: <input value={newName} />
+        </div>
+        <div>
+          <button type="submit">Add</button>
+        </div>
+      </form>
+      <h2>Numbers</h2>
     </div>
-  )
-}
-
-const CurrentList = ({ persons }) => {
-  const nameId = persons.map((person) => person.id)
-  const nameOnList = persons.map((person) => person.name)
-  
-  return (
-    <>
-      <p>{nameId[0]}. {nameOnList[0]}</p>
-      <p>{nameId[1]}. {nameOnList[1]}</p>
-    </>
-  )
-}
-
-const NewList = ({ persons }) => {
-  return (
-    <form>
-      <input field="text" placeholder="Enter a name"/>
-      <button>Add</button>
-    </form>
   )
 }
 
