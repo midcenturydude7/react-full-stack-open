@@ -4,7 +4,7 @@ const App = () => {
   // initalizes state with the name stored as Arto
   const [persons, setPersons] = React.useState([
     {
-      name: "Arto Hellas"
+      name: "Arto Hellas",
     }
   ])
   // State that will store user submitted data and the initial state is an empty string
@@ -18,7 +18,6 @@ const App = () => {
     }
   
   setPersons(persons.concat(nameObject));
-  console.log(nameObject)
   setNewName("")
   }
 
@@ -31,14 +30,17 @@ const App = () => {
       <h2>Phonebook</h2>
       <form onSubmit={addNewName}>
         <div>
-          name: <input value={newName} onChange={handleNameChange} />
+          <p>name: <input value={newName} onChange={handleNameChange} /></p>
         </div>
         <div>
           <button type="submit">Add</button>
         </div>
       </form>
       <h2>Numbers</h2>
-      <p onClick={() => handleNameChange(setNewName)}>Name added: </p>
+      <ol>{persons.map((person, i) => 
+        <li key={i}>{person.name}</li>
+      )}
+      </ol>
     </div>
   )
 }
