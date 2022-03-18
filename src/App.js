@@ -15,7 +15,7 @@ const App = () => {
     event.preventDefault();
     const nameObject = {
       name: newName
-    }
+  }
   
   setPersons(persons.concat(nameObject));
   setNewName("")
@@ -25,6 +25,17 @@ const App = () => {
     setNewName(event.target.value)
   }
  
+  // const nameExists = persons.map((person) => person.name === newName) ? alert("That name already exists in the phonebook! Try again") : (persons.map((person, i) =>
+  //     <li key={i}>{person.name}</li>))
+
+  const nameCheck = persons.filter
+    (person => (person.name) !== `${newName}`)
+    ? <ol>{persons.map((person, i) => 
+        <li key={i}>{person.name}
+        </li>
+      )}</ol>
+    : alert("That name already exists in the phonebook! Try again")
+
   return (
     <div>
       <h2>Phonebook</h2>
@@ -33,14 +44,15 @@ const App = () => {
           <p>name: <input value={newName} onChange={handleNameChange} /></p>
         </div>
         <div>
-          <button type="submit">Add</button>
+          <button 
+            type="submit"
+          >
+              Add
+          </button>
         </div>
       </form>
       <h2>Numbers</h2>
-      <ol>{persons.map((person, i) => 
-        <li key={i}>{person.name}</li>
-      )}
-      </ol>
+      <div>{nameCheck}</div>
     </div>
   )
 }
