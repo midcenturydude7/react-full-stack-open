@@ -28,8 +28,10 @@ const App = () => {
   // const nameExists = persons.map((person) => person.name === newName) ? alert("That name already exists in the phonebook! Try again") : (persons.map((person, i) =>
   //     <li key={i}>{person.name}</li>))
 
-  const nameCheck = persons.filter
-    (person => (person.name) !== `${newName}`)
+  const grabName = persons.map((person) => person.name)
+  // console.log(grabName)
+    
+  const nameCheck = !grabName.includes(`${newName}`) 
     ? <ol>{persons.map((person, i) => 
         <li key={i}>{person.name}
         </li>
