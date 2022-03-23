@@ -11,7 +11,7 @@ const App = () => {
     }; 
   };    
 
-  console.log(persons)
+  // console.log(persons)
 
   return (
     <div>
