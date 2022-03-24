@@ -12,11 +12,9 @@ const App = () => {
     axios
       .get("http://localhost:3001/notes")
       .then(response => {
-        console.log("Promise fulfilled")
         setNotes(response.data)
       });
   }, []);
-  console.log("render", notes.length, "notes")
 
   const addNote = (event) => {
     event.preventDefault()
@@ -37,7 +35,8 @@ const App = () => {
   }
 
   const notesToShow = showAll
-    ? notes : notes.filter(note => note.important)
+    ? notes 
+    : notes.filter(note => note.important)
 
   return (
     <>
