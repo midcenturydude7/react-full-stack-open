@@ -9,7 +9,13 @@ const App = () => {
     if (newName.trim()) {
       setPersons(prevState => new Set(prevState).add(newName.trim()))
     }; 
+    setNewName("")
   };    
+
+  const handleNameChange = (event) => {
+    setNewName(event.target.value)
+
+  }
 
   // console.log(persons)
 
@@ -18,7 +24,7 @@ const App = () => {
       <h2>Phonebook</h2>
       <form onSubmit={addNewName}>
         <input 
-          onChange={event => setNewName(event.target.value)}
+          onChange={handleNameChange}
           value={newName}
         />{" "}
         <button type="submit">Add</button>
